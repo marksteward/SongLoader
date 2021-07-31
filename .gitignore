@@ -49,3 +49,5 @@ extern
 qpm.shared.json
 
 Android.mk.backup
+
+QPM-ubuntu-x64.zip

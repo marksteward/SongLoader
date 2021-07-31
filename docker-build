@@ -1,0 +1,3 @@
+#!/bin/bash
+image=$(docker build -q .)
+docker cp $(docker create --rm $image):/app/libs/arm64-v8a build/
