@@ -1,0 +1,12 @@
+#!/bin/bash
+image=$(docker build -q --target bmbf-build-qpm .)
+echo "Built $image, now use 'pwsh -Command ./build.ps1' to build"
+docker run --rm -ti \
+  -v $PWD/src:/app/src:ro \
+  -v $PWD/include:/app/include:ro \
+  -v $PWD/shared:/app/shared:ro \
+  -v $PWD/Android.mk:/app/Android.mk:ro \
+  -v $PWD/Application.mk:/app/Application.mk:ro \
+  -v $PWD/build.ps1:/app/build.ps1:ro \
+  -v $PWD/build:/app/build \
+  $image
